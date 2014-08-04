@@ -21,6 +21,8 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile ([group: 'com.appspot.nich01as_com', name: 'article', version: 'v1-1.19.0-SNAPSHOT'])
+    compile ([group: 'com.appspot.nich01as_com', name: 'kreaderservice', version: 'v1-1.19.0-SNAPSHOT'])
     compile ([group: 'com.google.api-client', name: 'google-api-client-android', version: '1.19.0'])
+    compile 'com.squareup.dagger:dagger:1.2.1'
+    provided 'com.squareup.dagger:dagger-compiler:1.2.1'
 }

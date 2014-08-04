@@ -4,5 +4,12 @@
     <string name="app_name">KReader</string>
     <string name="hello_world">boring world</string>
     <string name="action_settings">Settings</string>
+    <string name="new_user">New User</string>
+    <string name="enter_user_name">Enter User Name</string>
+    <string name="ok">OK</string>
+    <string name="following_tags">Following Tags</string>
+    <string name="new_tag">New Tag</string>
+    <string name="new_butter">New Butter</string>
+    <string name="butters">Butters</string>
 
 </resources>
