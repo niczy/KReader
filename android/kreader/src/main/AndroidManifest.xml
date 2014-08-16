@@ -24,7 +24,9 @@
         <activity android:name=".activity.TagsActivity"></activity>
         <activity android:name=".activity.PostButterActivity"></activity>
         <activity android:name=".activity.ButterListActivity"></activity>
-        <activity android:name=".activity.ButterActivity"></activity>
+        <activity android:name=".activity.ButterActivity"
+            android:theme="@android:style/Theme.Material.Light.NoActionBar"
+            ></activity>
     </application>
 
 </manifest>

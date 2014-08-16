@@ -5,7 +5,7 @@
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.ideaLibSources/dagger-1.2.1-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.dagger/dagger/1.2.1/9fdd555d386f8b904907df4e7a130fd3566538e0/dagger-1.2.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

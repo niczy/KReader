@@ -16,13 +16,14 @@
             android:layout_height="wrap_content" />
         <Button
             android:id="@+id/follow_tag"
+            android:text="@string/follow"
             android:onClick="onFollowTagClicked"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         </LinearLayout>
-    <TextView
-        android:id="@+id/tags"
+    <ListView
+        android:id="@+id/tag_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"></ListView>
 
 </LinearLayout>

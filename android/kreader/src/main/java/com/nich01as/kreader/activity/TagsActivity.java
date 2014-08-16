@@ -1,34 +1,50 @@
 package com.nich01as.kreader.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.appspot.nich01as_com.kreaderservice.Kreaderservice;
 import com.appspot.nich01as_com.kreaderservice.model.ApiApiModelButter;
 import com.appspot.nich01as_com.kreaderservice.model.ApiApiModelTag;
 import com.appspot.nich01as_com.kreaderservice.model.ApiApiModelTagCollection;
+import com.google.common.base.Joiner;
 import com.nich01as.kreader.DaggerInjector;
 import com.nich01as.kreader.R;
+import com.nich01as.kreader.services.TagService;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.inject.Inject;
 
 /**
  * Created by nicholaszhao on 8/2/14.
  */
-public class TagsActivity extends Activity {
+public class TagsActivity extends Activity implements AdapterView.OnItemClickListener {
 
     @Inject
     Kreaderservice kreaderservice;
+    @Inject
+    TagService mTagService;
 
     TextView mTags;
     TextView mNewTagName;
+    ListView mTagList;
+
+    ArrayAdapter<String> mTagAdapter;
 
     public TagsActivity() {
         DaggerInjector.inject(this);
@@ -40,55 +56,27 @@ public class TagsActivity extends Activity {
         setContentView(R.layout.activity_tags);
         mTags = (TextView) findViewById(R.id.tags);
         mNewTagName = (TextView) findViewById(R.id.tag);
-        new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... params) {
-                try {
-                    final ApiApiModelTagCollection tagCollection =
-                        kreaderservice.listFollowingTags("nicholas").execute();
-                    Log.d("tags", tagCollection.toString());
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (tagCollection.getItems() != null) {
-                                StringBuilder sb = new StringBuilder();
-                                for (ApiApiModelTag tag : tagCollection.getItems()) {
-                                    sb.append(tag.getName() + " ");
-                                }
-                                mTags.setText(sb.toString());
-                            }
-                        }
-                    });
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
-        }.execute();
+        mTagList = (ListView) findViewById(R.id.tag_list);
+        mTagList.setOnItemClickListener(this);
+        updateList();
     }
 
     public void onFollowTagClicked(View view) {
         final String tagName = mNewTagName.getText().toString();
-        new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... params) {
-                ApiApiModelTag tag = new ApiApiModelTag();
-                tag.setName(tagName);
-                try {
-                    kreaderservice.followTag("nicholas", tag).execute();
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            finish();
-                        }
-                    });
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
-        }.execute();
-        startActivity(new Intent(this, TagsActivity.class));
+        mTagService.addTag(tagName);
+        updateList();
+        mNewTagName.setText("");
     }
 
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
+        mTagService.remove(mTagAdapter.getItem(pos));
+        updateList();
+    }
+
+    private void updateList() {
+        mTagAdapter = new ArrayAdapter<String>(this, R.layout.tag_item, R.id.tag, mTagService.listTags());
+        mTagList.setAdapter(mTagAdapter);
+    }
 }

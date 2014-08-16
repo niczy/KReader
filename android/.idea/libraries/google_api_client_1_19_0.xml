@@ -5,7 +5,7 @@
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.ideaLibSources/google-api-client-1.19.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client/1.19.0/5187b30c7daa5062151fcb2a7b320ec71a6af6ef/google-api-client-1.19.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

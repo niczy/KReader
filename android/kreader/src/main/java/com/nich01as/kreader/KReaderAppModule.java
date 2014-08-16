@@ -7,6 +7,7 @@ import com.appspot.nich01as_com.kreaderservice.Kreaderservice;
 import com.nich01as.kreader.activity.ButterActivity;
 import com.nich01as.kreader.activity.ButterListActivity;
 import com.nich01as.kreader.services.ServiceModule;
+import com.nich01as.kreader.services.TagService;
 
 import javax.inject.Singleton;
 
@@ -19,7 +20,8 @@ import dagger.Provides;
 @Module(
         injects = {
                 ButterListActivity.ButterListAdapter.class,
-                ButterActivity.class
+                ButterActivity.class,
+                TagService.class
         },
         complete = true, library = true,
         includes = {ServiceModule.class})
@@ -35,5 +37,11 @@ public class KReaderAppModule {
     @Singleton
     LayoutInflater provideLayoutInflactor() {
         return LayoutInflater.from(application);
+    }
+
+    @Provides
+    @Singleton
+    Application provideApplication() {
+        return application;
     }
 }

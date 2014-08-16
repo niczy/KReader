@@ -25,6 +25,7 @@ import dagger.Provides;
             PostButterActivity.class,
             ButterListActivity.class
     },
+    complete = false,
     library = true)
 public class ServiceModule {
 

@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:text="Tinder"
-    android:paddingLeft="4dp"
-    android:paddingRight="4dp"
-    android:layout_marginLeft="2dp"
-    android:layout_marginRight="2dp"
-    android:background="@android:color/white"
-    android:paddingBottom="2dp"
-    android:textColor="@android:color/darker_gray"
-    android:layout_width="50dp"
-    android:layout_height="wrap_content">
-</TextView>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+    <TextView
+              android:id="@+id/tag"
+              android:text="Tinder"
+              android:padding="18dp"
+              android:layout_marginLeft="2dp"
+              android:layout_marginRight="2dp"
+              android:paddingBottom="2dp"
+              android:textSize="20sp"
+              android:gravity="center"
+              android:textColor="@android:color/black"
+              android:layout_weight="1"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content">
+    </TextView>
+</LinearLayout>

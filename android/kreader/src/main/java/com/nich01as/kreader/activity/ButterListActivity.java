@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,12 @@ import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import com.nich01as.kreader.DaggerInjector;
 import com.nich01as.kreader.R;
+import com.nich01as.kreader.services.SearchService;
+import com.nich01as.kreader.services.TagService;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,6 +46,10 @@ public class ButterListActivity extends ListActivity {
 
     @Inject
     Kreaderservice kreaderservice;
+    @Inject
+    SearchService searchService;
+    @Inject
+    TagService mTagService;
 
     public ButterListActivity() {
         DaggerInjector.inject(this);
@@ -51,18 +62,21 @@ public class ButterListActivity extends ListActivity {
             @Override
             protected Void doInBackground(Void... params) {
                 try {
-                    ApiApiModelButterCollection butterCollection =
-                        kreaderservice.getButtersByUserName("nicholas").execute();
-                    mButters = butterCollection.getItems();
-                    final ButterListAdapter listAdapter =
-                            new ButterListAdapter(ButterListActivity.this, mButters);
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            setListAdapter(listAdapter);
-                        }
-                    });
+                    try {
+                        List<String> tags = mTagService.listTags();
+                        List<JSONObject> list = searchService.search(tags);
+                        final ButterListAdapter adapter =
+                                new ButterListAdapter(ButterListActivity.this, list);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                setListAdapter(adapter);
+                            }
+                        });
 
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -88,11 +102,11 @@ public class ButterListActivity extends ListActivity {
 
     public static class ButterListAdapter extends BaseAdapter {
         private Context mContext;
-        private List<ApiApiModelButter> mButters;
+        private List<JSONObject> mButters;
         @Inject
         LayoutInflater mLayoutInflator;
 
-        public ButterListAdapter(Context context, List<ApiApiModelButter> butters) {
+        public ButterListAdapter(Context context, List<JSONObject> butters) {
             this.mContext = context;
             this.mButters = butters;
             DaggerInjector.inject(this);
@@ -117,20 +131,26 @@ public class ButterListActivity extends ListActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             View butterView = mLayoutInflator.inflate(R.layout.butter_item, parent, false);
             TextView butterContent = (TextView) butterView.findViewById(R.id.butter_content);
-            ApiApiModelButter butter = mButters.get(position);
-            butterContent.setText(butter.getContent().substring(0, Math.min(240, butter.getContent().length())));
-            ViewGroup tagContainer = (ViewGroup) butterView.findViewById(R.id.tag_container);
-            for (int i = 0; i < butter.getTags().getItems().size(); i++) {
-                mLayoutInflator.inflate(R.layout.tag_item, tagContainer);
+            JSONObject butter = mButters.get(position);
+
+            try {
+                String content = butter.getString("content");
+                butterContent.setText(Html.fromHtml(content));
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            int i = 0;
-
-            for (ApiApiModelTag tag : butter.getTags().getItems()) {
-                TextView textView = (TextView) tagContainer.getChildAt(i++);
-
-                    textView.setText(tag.getName());
-
-            }
+//            ViewGroup tagContainer = (ViewGroup) butterView.findViewById(R.id.tag_container);
+//            for (int i = 0; i < butter.getTags().getItems().size(); i++) {
+//                mLayoutInflator.inflate(R.layout.tag_item, tagContainer);
+//            }
+//            int i = 0;
+//
+//            for (ApiApiModelTag tag : butter.getTags().getItems()) {
+//                TextView textView = (TextView) tagContainer.getChildAt(i++);
+//
+//                    textView.setText(tag.getName());
+//
+//            }
             return butterView;
         }
     }
