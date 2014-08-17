@@ -6,13 +6,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.text.Html;
+import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.appspot.nich01as_com.kreaderservice.Kreaderservice;
@@ -54,8 +60,15 @@ public class ButterListActivity extends ListActivity {
     SearchService searchService;
     @Inject
     TagService mTagService;
+    @Inject
+    LayoutInflater mLayoutInflator;
+
+    List<String> mKeywords;
 
     ButterListAdapter mAdapter;
+    DrawerLayout mDrawerLayout;
+    ListView mDrawerList;
+
 
     public ButterListActivity() {
         DaggerInjector.inject(this);
@@ -64,7 +77,28 @@ public class ButterListActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
+        setContentView(R.layout.activity_butter_list);
+
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        final View drawer = findViewById(R.id.left_drawer);
+        mDrawerList = (ListView) findViewById(R.id.tag_list);
+        mDrawerList.setAdapter(new TagListAdapter(this, mTagService.listTags(), mLayoutInflator));
+        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
+                updateListViewKeywords(Lists.newArrayList(mTagService.listTags().get(pos)));
+                mDrawerLayout.closeDrawer(drawer);
+            }
+        });
+
         final List<String> keywords = getIntent().getStringArrayListExtra(KEYWORDS_KEY);
+        updateListViewKeywords(keywords);
+
+    }
+
+    private void updateListViewKeywords(final List<String> keywords) {
+        mKeywords = keywords;
         setTitle(Joiner.on(",").join(keywords));
         new AsyncTask<Void, Void, List<JSONObject>>() {
             @Override
@@ -87,7 +121,30 @@ public class ButterListActivity extends ListActivity {
                 setListAdapter(mAdapter);
             }
         }.execute();
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if (mKeywords.size() == 1 && !mTagService.listTags().contains(mKeywords.get(0))) {
+            // Inflate the menu; this adds items to the action bar if it is present.
+            getMenuInflater().inflate(R.menu.main, menu);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            mTagService.addTag(mKeywords.get(0));
+            invalidateOptionsMenu();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -103,6 +160,43 @@ public class ButterListActivity extends ListActivity {
         }
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, v.findViewById(R.id.butter_content), "article");
         startActivity(intent, options.toBundle());
+    }
+
+    public static class TagListAdapter extends BaseAdapter {
+
+        private Context mContext;
+        private LayoutInflater mLayoutInflater;
+        private List<String> mTagList;
+
+
+        public TagListAdapter(Context context, List<String> tagList, LayoutInflater layoutInflater) {
+            mContext = context;
+            mLayoutInflater = layoutInflater;
+            mTagList = tagList;
+        }
+
+        @Override
+        public int getCount() {
+            return mTagList.size();
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return mTagList.get(i);
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return i;
+        }
+
+        @Override
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            View tagContainer = mLayoutInflater.inflate(R.layout.tag_item, viewGroup, false);
+            TextView textView = (TextView) tagContainer.findViewById(R.id.tag);
+            textView.setText(mTagList.get(i));
+            return tagContainer;
+        }
     }
 
 

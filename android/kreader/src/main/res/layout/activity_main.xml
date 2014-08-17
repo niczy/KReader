@@ -9,29 +9,13 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/hello"
-        android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <Button
-        android:id="@+id/new_user"
-        android:text="@string/new_user"
-        android:onClick="onNewUserClicked"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
     <Button
         android:id="@+id/tags"
         android:text="@string/following_tags"
         android:onClick="onFollowingTagsClicked"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    <Button
-        android:id="@+id/new_butter"
-        android:text="@string/new_butter"
-        android:onClick="onNewButterClicked"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/butters"
         android:text="@string/butters"
