@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/tag"
+              android:text="Tinder"
+              android:elevation="4dp"
+              android:textSize="13sp"
+              android:padding="3dp"
+              android:gravity="center"
+              android:textColor="@android:color/holo_blue_dark"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+    </TextView>

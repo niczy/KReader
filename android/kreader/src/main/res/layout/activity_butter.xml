@@ -1,25 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@android:color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 <LinearLayout
     android:orientation="vertical"
-    android:padding="5dp"
+    android:padding="10dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
+        android:id="@+id/title"
+        android:text="@string/title"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingBottom="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+        <TextView
+            android:id="@+id/publisher"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <ImageView
+            android:id="@+id/ico"
+            android:layout_marginLeft="6dp"
+            android:scaleType="centerCrop"
+            android:layout_width="14dp"
+            android:layout_height="14dp"/>
+
+        </LinearLayout>
+    <HorizontalScrollView
+        android:id="@+id/tag_scroller"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:scrollbars="none"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/tag_container"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </LinearLayout>
+    </HorizontalScrollView>
+    <TextView
         android:id="@+id/butter_content"
-        android:padding="5dp"
+        android:viewName="@string/article"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:background="@android:color/white"
         />
-    <LinearLayout
-        android:id="@+id/tag_container"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"></LinearLayout>
 </LinearLayout>
 </ScrollView>

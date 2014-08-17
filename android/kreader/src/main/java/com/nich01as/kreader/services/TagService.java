@@ -8,6 +8,7 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -31,12 +32,16 @@ public class TagService {
         preference = application.getSharedPreferences(NAME, 0);
     }
 
-    public List<String> listTags() {
+    public ArrayList<String> listTags() {
         String tags = preference.getString(TAG_KEY, "");
         if (Strings.isNullOrEmpty(tags)) {
-            return com.google.api.client.util.Lists.newArrayList();
+            return Lists.newArrayList();
         }
-        return Arrays.asList(preference.getString(TAG_KEY, "").split(","));
+        ArrayList<String> tagList = Lists.newArrayList();
+        for (String tag : tags.split(",")) {
+            tagList.add(tag);
+        }
+        return tagList;
     }
 
     public void addTag(String tag) {

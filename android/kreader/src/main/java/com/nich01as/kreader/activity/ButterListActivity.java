@@ -1,5 +1,6 @@
 package com.nich01as.kreader.activity;
 
+import android.app.ActivityOptions;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +20,7 @@ import com.appspot.nich01as_com.kreaderservice.model.ApiApiModelButter;
 import com.appspot.nich01as_com.kreaderservice.model.ApiApiModelButterCollection;
 import com.appspot.nich01as_com.kreaderservice.model.ApiApiModelTag;
 import com.google.common.base.Function;
+import com.google.common.base.Joiner;
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import com.nich01as.kreader.DaggerInjector;
@@ -42,6 +44,8 @@ import javax.inject.Inject;
  */
 public class ButterListActivity extends ListActivity {
 
+    public static final String KEYWORDS_KEY = "keywords";
+
     private List<ApiApiModelButter> mButters;
 
     @Inject
@@ -51,6 +55,8 @@ public class ButterListActivity extends ListActivity {
     @Inject
     TagService mTagService;
 
+    ButterListAdapter mAdapter;
+
     public ButterListActivity() {
         DaggerInjector.inject(this);
     }
@@ -58,22 +64,14 @@ public class ButterListActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
-        new AsyncTask<Void, Void, Void>() {
+        final List<String> keywords = getIntent().getStringArrayListExtra(KEYWORDS_KEY);
+        setTitle(Joiner.on(",").join(keywords));
+        new AsyncTask<Void, Void, List<JSONObject>>() {
             @Override
-            protected Void doInBackground(Void... params) {
+            protected List<JSONObject> doInBackground(Void... params) {
                 try {
                     try {
-                        List<String> tags = mTagService.listTags();
-                        List<JSONObject> list = searchService.search(tags);
-                        final ButterListAdapter adapter =
-                                new ButterListAdapter(ButterListActivity.this, list);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                setListAdapter(adapter);
-                            }
-                        });
-
+                        return searchService.search(keywords);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -82,6 +80,12 @@ public class ButterListActivity extends ListActivity {
                 }
                 return null;
             }
+
+            @Override
+            protected void onPostExecute(List<JSONObject> butters) {
+                mAdapter = new ButterListAdapter(ButterListActivity.this, butters);
+                setListAdapter(mAdapter);
+            }
         }.execute();
 
     }
@@ -89,14 +93,16 @@ public class ButterListActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         Intent intent = new Intent(this, ButterActivity.class);
-        ApiApiModelButter butter = mButters.get(position);
-        intent.putExtra(ButterActivity.BUTTER_CONTENT_KEY, butter.getContent());
-        ArrayList<String> tags = Lists.newArrayList();
-        for (ApiApiModelTag tag : butter.getTags().getItems()) {
-            tags.add(tag.getName());
+        JSONObject butter = (JSONObject) mAdapter.getItem(position);
+        try {
+            intent.putExtra(ButterActivity.URL_KEY, butter.getString("unescapedUrl"));
+            intent.putExtra(ButterActivity.TITLE_KEY, butter.getString("title"));
+            intent.putExtra(ButterActivity.PUBLISHER_KEY, butter.getString("publisher"));
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        intent.putStringArrayListExtra(ButterActivity.TAGS_KEY, tags);
-        startActivity(intent);
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, v.findViewById(R.id.butter_content), "article");
+        startActivity(intent, options.toBundle());
     }
 
 
@@ -131,11 +137,15 @@ public class ButterListActivity extends ListActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             View butterView = mLayoutInflator.inflate(R.layout.butter_item, parent, false);
             TextView butterContent = (TextView) butterView.findViewById(R.id.butter_content);
+            TextView titleContent = (TextView) butterView.findViewById(R.id.title);
+            TextView dateContent = (TextView) butterView.findViewById(R.id.date);
             JSONObject butter = mButters.get(position);
 
             try {
                 String content = butter.getString("content");
                 butterContent.setText(Html.fromHtml(content));
+                titleContent.setText(Html.fromHtml(butter.getString("title")));
+                dateContent.setText(Html.fromHtml(butter.getString("date")));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

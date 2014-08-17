@@ -2,23 +2,41 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="@color/light_gray"
     android:paddingLeft="5dp"
     android:paddingRight="5dp"
     android:paddingTop="2dp"
     android:paddingBottom="2dp"
+    android:layout_margin="2dp"
+    android:elevation="4dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/title"
+        android:text="Title"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/date"
+        android:text="2014-02-2 13:33"
+        android:paddingBottom="5dp"
+        android:textColor="@android:color/darker_gray"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <TextView
         android:id="@+id/butter_content"
         android:layout_width="match_parent"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at ligula ultrices, aliquam massa sed, facilisis ligula. Sed sed convallis metus. In commodo quam sit amet eros dignissim commodo. Pellentesque eu est imperdiet, feugiat nisi tempus, ornare est. Ut placerat tempus odio, sed hendrerit metus facilisis non. Maecenas ac tristique lectus. Quisque eget velit eget erat ornare iaculis. In congue lorem sapien, et lobortis augue auctor congue."
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:padding="5dp"
+        android:viewName="@string/article"
         android:textColor="@android:color/black"
         android:background="@android:color/white"
-        android:elevation="2dp"
+
         />
     <LinearLayout
         android:id="@+id/tag_container"

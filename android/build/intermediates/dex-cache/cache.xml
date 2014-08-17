@@ -50,17 +50,11 @@
         revision="19.1.0"
         sha1="6a21277d9bebe267b7ddee028b241eebc756c040"/>
     <item
-        dex="/Users/nicholaszhao/Workspace/KReader/android/kreader/build/intermediates/pre-dexed/debug/kreaderservice-v1-1.19.0-SNAPSHOT-68791aa0ef1be2877f5d9e19ead8a1b90d06e5ce.jar"
-        jar="/Users/nicholaszhao/.m2/repository/com/appspot/nich01as_com/kreaderservice/v1-1.19.0-SNAPSHOT/kreaderservice-v1-1.19.0-SNAPSHOT.jar"
+        dex="/Users/nicholaszhao/Workspace/KReader/android/kreader/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.2-fe7921bcd8c1fc2ee256f656257521a500f38c93.jar"
+        jar="/Users/nicholaszhao/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.2/9e025bc5b84968e7d6ac765e660a70b3e5a87432/universal-image-loader-1.9.2.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="56de77e0abf18a22cefc0e99e64f2ef45647fab6"/>
-    <item
-        dex="/Users/nicholaszhao/Workspace/KReader/android/kreader/build/intermediates/pre-dexed/debug/google-http-client-jackson2-1.19.0-0219bb2a9630a3500b36fe9eea23ef185d449fbc.jar"
-        jar="/Users/nicholaszhao/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-jackson2/1.19.0/81dbf9795d387d5e80e55346582d5f2fb81a42eb/google-http-client-jackson2-1.19.0.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="81dbf9795d387d5e80e55346582d5f2fb81a42eb"/>
+        sha1="9e025bc5b84968e7d6ac765e660a70b3e5a87432"/>
     <item
         dex="/Users/nicholaszhao/Workspace/KReader/android/kreader/build/intermediates/pre-dexed/debug/jackson-core-2.1.3-1b1f730bff5579d838e45571668f4b5eafe92b37.jar"
         jar="/Users/nicholaszhao/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.1.3/f6c3aed1cdfa21b5c1737c915186ea93a95a58bd/jackson-core-2.1.3.jar"
@@ -73,6 +67,42 @@
         jumboMode="false"
         revision="20.0.0"
         sha1="e3f11020c2c812112803d252d1392872d3f619c8"/>
+    <item
+        dex="/Users/nicholaszhao/Workspace/KReader/android/kreader/build/intermediates/pre-dexed/debug/jsr305-1.3.9-4e6427f5ed27ea7867229c41731062df5c23ac7a.jar"
+        jar="/Users/nicholaszhao/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/1.3.9/40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf/jsr305-1.3.9.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf"/>
+    <item
+        dex="/Users/nicholaszhao/Workspace/KReader/android/kreader/build/intermediates/pre-dexed/debug/google-api-client-android-1.19.0-6ae99d4d5696ba7ff06261a2f23c8a4e71aa65c8.jar"
+        jar="/Users/nicholaszhao/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client-android/1.19.0/ba2aafb867f6af469f936ae76426cf0a280094bd/google-api-client-android-1.19.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="ba2aafb867f6af469f936ae76426cf0a280094bd"/>
+    <item
+        dex="/Users/nicholaszhao/Workspace/KReader/android/kreader/build/intermediates/pre-dexed/debug/guava-jdk5-13.0-bd0c5b4ab81d28e3f17d68760626b169116b913f.jar"
+        jar="/Users/nicholaszhao/.gradle/caches/modules-2/files-2.1/com.google.guava/guava-jdk5/13.0/381ae6c8add7c98e9bcddb1e0b898400cd6fc3f7/guava-jdk5-13.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="381ae6c8add7c98e9bcddb1e0b898400cd6fc3f7"/>
+    <item
+        dex="/Users/nicholaszhao/Workspace/KReader/android/kreader/build/intermediates/pre-dexed/debug/javax.inject-1-8db3c87f418fe86ae5c9f9400679d9c80eb24acc.jar"
+        jar="/Users/nicholaszhao/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38"/>
+    <item
+        dex="/Users/nicholaszhao/Workspace/KReader/android/kreader/build/intermediates/pre-dexed/debug/kreaderservice-v1-1.19.0-SNAPSHOT-68791aa0ef1be2877f5d9e19ead8a1b90d06e5ce.jar"
+        jar="/Users/nicholaszhao/.m2/repository/com/appspot/nich01as_com/kreaderservice/v1-1.19.0-SNAPSHOT/kreaderservice-v1-1.19.0-SNAPSHOT.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="56de77e0abf18a22cefc0e99e64f2ef45647fab6"/>
+    <item
+        dex="/Users/nicholaszhao/Workspace/KReader/android/kreader/build/intermediates/pre-dexed/debug/google-http-client-jackson2-1.19.0-0219bb2a9630a3500b36fe9eea23ef185d449fbc.jar"
+        jar="/Users/nicholaszhao/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-jackson2/1.19.0/81dbf9795d387d5e80e55346582d5f2fb81a42eb/google-http-client-jackson2-1.19.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="81dbf9795d387d5e80e55346582d5f2fb81a42eb"/>
     <item
         dex="/Users/nicholaszhao/Workspace/KReader/android/kreader/build/intermediates/pre-dexed/debug/javax.inject-1-8db3c87f418fe86ae5c9f9400679d9c80eb24acc.jar"
         jar="/Users/nicholaszhao/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
@@ -98,41 +128,23 @@
         revision="19.1.0"
         sha1="cdca49ad0977c040f603478aa2e16b2775c8fec6"/>
     <item
-        dex="/Users/nicholaszhao/Workspace/KReader/android/kreader/build/intermediates/pre-dexed/debug/jsr305-1.3.9-4e6427f5ed27ea7867229c41731062df5c23ac7a.jar"
-        jar="/Users/nicholaszhao/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/1.3.9/40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf/jsr305-1.3.9.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf"/>
-    <item
         dex="/Users/nicholaszhao/Workspace/KReader/android/kreader/build/intermediates/pre-dexed/debug/jackson-core-2.1.3-1b1f730bff5579d838e45571668f4b5eafe92b37.jar"
         jar="/Users/nicholaszhao/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.1.3/f6c3aed1cdfa21b5c1737c915186ea93a95a58bd/jackson-core-2.1.3.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="f6c3aed1cdfa21b5c1737c915186ea93a95a58bd"/>
     <item
-        dex="/Users/nicholaszhao/Workspace/KReader/android/kreader/build/intermediates/pre-dexed/debug/google-api-client-android-1.19.0-6ae99d4d5696ba7ff06261a2f23c8a4e71aa65c8.jar"
-        jar="/Users/nicholaszhao/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client-android/1.19.0/ba2aafb867f6af469f936ae76426cf0a280094bd/google-api-client-android-1.19.0.jar"
+        dex="/Users/nicholaszhao/Workspace/KReader/android/kreader/build/intermediates/pre-dexed/debug/AlchemyAPI-a550055b985554a46fc959f1d6a30f373e188044.jar"
+        jar="/Users/nicholaszhao/Workspace/KReader/android/kreader/libs/AlchemyAPI.jar"
         jumboMode="false"
-        revision="19.1.0"
-        sha1="ba2aafb867f6af469f936ae76426cf0a280094bd"/>
-    <item
-        dex="/Users/nicholaszhao/Workspace/KReader/android/kreader/build/intermediates/pre-dexed/debug/guava-jdk5-13.0-bd0c5b4ab81d28e3f17d68760626b169116b913f.jar"
-        jar="/Users/nicholaszhao/.gradle/caches/modules-2/files-2.1/com.google.guava/guava-jdk5/13.0/381ae6c8add7c98e9bcddb1e0b898400cd6fc3f7/guava-jdk5-13.0.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="381ae6c8add7c98e9bcddb1e0b898400cd6fc3f7"/>
+        revision="20.0.0"
+        sha1="396b58879048c3eff212af4915b42f791c699969"/>
     <item
         dex="/Users/nicholaszhao/Workspace/KReader/android/kreader/build/intermediates/pre-dexed/debug/google-http-client-android-1.19.0-3e9a960b6ecb461d010c22c28018537bdb64077d.jar"
         jar="/Users/nicholaszhao/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-android/1.19.0/e3f11020c2c812112803d252d1392872d3f619c8/google-http-client-android-1.19.0.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="e3f11020c2c812112803d252d1392872d3f619c8"/>
-    <item
-        dex="/Users/nicholaszhao/Workspace/KReader/android/kreader/build/intermediates/pre-dexed/debug/javax.inject-1-8db3c87f418fe86ae5c9f9400679d9c80eb24acc.jar"
-        jar="/Users/nicholaszhao/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="6975da39a7040257bd51d21a231b76c915872d38"/>
     <item
         dex="/Users/nicholaszhao/Workspace/KReader/android/kreader/build/intermediates/pre-dexed/debug/dagger-1.2.1-fed2f36959c45b65f509b3979cd76505588c9b33.jar"
         jar="/Users/nicholaszhao/.gradle/caches/modules-2/files-2.1/com.squareup.dagger/dagger/1.2.1/78f96ef00fceee95802930944b1fc4e0e1f9aacc/dagger-1.2.1.jar"

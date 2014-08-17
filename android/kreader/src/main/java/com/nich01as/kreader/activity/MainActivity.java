@@ -15,6 +15,10 @@ import com.appspot.nich01as_com.kreaderservice.Kreaderservice;
 import com.google.common.base.Preconditions;
 import com.nich01as.kreader.DaggerInjector;
 import com.nich01as.kreader.R;
+import com.nich01as.kreader.services.TagService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -23,6 +27,8 @@ public class MainActivity extends Activity {
 
     @Inject
     Kreaderservice kreaderservice;
+    @Inject
+    TagService mTagService;
 
     public MainActivity() {
         DaggerInjector.inject(this);
@@ -68,6 +74,8 @@ public class MainActivity extends Activity {
     }
 
     public void onButtersClicked(View view) {
-        startActivity(new Intent(this, ButterListActivity.class));
+        Intent intent = new Intent(this, ButterListActivity.class);
+        intent.putStringArrayListExtra(ButterListActivity.KEYWORDS_KEY, mTagService.listTags());
+        startActivity(intent);
     }
 }

@@ -12,5 +12,7 @@
     <string name="new_butter">New Butter</string>
     <string name="butters">Butters</string>
     <string name="follow">follow</string>
+    <string name="article">article</string>
+    <string name="title">title</string>
 
 </resources>
