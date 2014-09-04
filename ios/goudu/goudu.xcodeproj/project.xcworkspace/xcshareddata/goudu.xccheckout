@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B4821F6E-0803-4204-B17F-23DCA78E4D38</string>
+	<key>IDESourceControlProjectName</key>
+	<string>goudu</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>13EF50D4B7E48A4C220AC428B4C5EA42E2A8521C</key>
+		<string>github.com:niczy/KReader.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ios/goudu/goudu.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>13EF50D4B7E48A4C220AC428B4C5EA42E2A8521C</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:niczy/KReader.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>13EF50D4B7E48A4C220AC428B4C5EA42E2A8521C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>13EF50D4B7E48A4C220AC428B4C5EA42E2A8521C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>KReader</string>
+		</dict>
+	</array>
+</dict>
+</plist>

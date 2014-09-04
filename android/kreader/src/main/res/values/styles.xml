@@ -5,6 +5,7 @@
         <!-- Customize your theme here. -->
         <!-- enable window content transitions -->
         <item name="android:windowContentTransitions">true</item>
+        <item name="android:actionBarSize">40dp</item>
 
         <!-- specify shared element transitions -->
         <item name="android:windowSharedElementEnterTransition">

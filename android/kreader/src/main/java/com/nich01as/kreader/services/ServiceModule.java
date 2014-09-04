@@ -4,8 +4,8 @@ import com.appspot.nich01as_com.kreaderservice.Kreaderservice;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.nich01as.kreader.activity.ButterListActivity;
+import com.nich01as.kreader.activity.ExploreActivity;
 import com.nich01as.kreader.activity.MainActivity;
-import com.nich01as.kreader.activity.NewUserActivity;
 import com.nich01as.kreader.activity.PostButterActivity;
 import com.nich01as.kreader.activity.TagsActivity;
 
@@ -20,7 +20,7 @@ import dagger.Provides;
 @Module(
     injects = {
             MainActivity.class,
-            NewUserActivity.class,
+            ExploreActivity.class,
             TagsActivity.class,
             PostButterActivity.class,
             ButterListActivity.class

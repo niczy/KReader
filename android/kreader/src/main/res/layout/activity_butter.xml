@@ -54,6 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
+        android:lineSpacingExtra="1.5dp"
         android:background="@android:color/white"
         />
 </LinearLayout>

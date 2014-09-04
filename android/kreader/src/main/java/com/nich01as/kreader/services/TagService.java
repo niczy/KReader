@@ -49,6 +49,7 @@ public class TagService {
         if (!tags.contains(tag)) {
             List<String> newTags = Lists.newArrayList();
             newTags.addAll(tags);
+            Collections.reverse(newTags);
             newTags.add(tag);
             Collections.reverse(newTags);
             preference.edit().putString(TAG_KEY, Joiner.on(",").join(newTags)).commit();
