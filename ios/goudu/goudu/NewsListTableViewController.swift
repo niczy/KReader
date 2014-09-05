@@ -16,10 +16,11 @@ class NewsListTableViewController: UITableViewController {
         super.viewDidLoad()
         var nib = UINib(nibName: "NewsItemView", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: "list")
-        let url = NSURL(string: "http://www.nich01as.com/apps/kreader/_/articles?q=kobe,durant")
+        let url = NSURL(string: "http://www.nich01as.com/apps/kreader/_/articles?q=tesla")
         let task = NSURLSession.sharedSession().dataTaskWithURL(url) {(data: NSData!, response, error) in
             if (error != nil) {
                 println("request error \(error.localizedDescription)")
+                print(error)
             } else {
                 var dataStr = NSString(data: data, encoding: NSUTF8StringEncoding)
                 var dataError: NSError?
@@ -33,6 +34,7 @@ class NewsListTableViewController: UITableViewController {
             
             
         }
+        
         task.resume()
 
         // Uncomment the following line to preserve selection between presentations
@@ -64,6 +66,17 @@ class NewsListTableViewController: UITableViewController {
             return 0
         }
     }
+    
+    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        println("perform segue!")
+        self.performSegueWithIdentifier("showNews", sender: self)
+    }
+    
+    @IBAction func backToNewsList(s:UIStoryboardSegue) {
+        println("hello world");
+    }
+
+
 
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
@@ -114,14 +127,20 @@ class NewsListTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        print(segue.destinationViewController)
+        var navControlller = segue.destinationViewController as UINavigationController
+  
+        var newsDetailController = navControlller.topViewController as NewsDetailViewController
+        var index = self.tableView.indexPathForSelectedRow().row
+        var newsItem = self.newsList!.objectAtIndex(index) as NSDictionary
+        newsDetailController.titleStr = newsItem.objectForKey("title") as String
+        newsDetailController.content = newsItem.objectForKey("content") as String
     }
-    */
+    
 
 }

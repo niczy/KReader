@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F511F3419AAF1A800AEF8A0 /* NewsItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F511F3319AAF1A800AEF8A0 /* NewsItemView.xib */; };
 		1F511F3619AAF26F00AEF8A0 /* NewItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F511F3519AAF26F00AEF8A0 /* NewItemTableViewCell.swift */; };
+		1F8FFEA719B98687009AFDA9 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FFEA619B98687009AFDA9 /* NewsDetailViewController.swift */; };
 		1FA85DA519A9093100E91E9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA85DA419A9093100E91E9E /* AppDelegate.swift */; };
 		1FA85DA819A9093100E91E9E /* goudu.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1FA85DA619A9093100E91E9E /* goudu.xcdatamodeld */; };
 		1FA85DAA19A9093100E91E9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA85DA919A9093100E91E9E /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		1F511F3319AAF1A800AEF8A0 /* NewsItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsItemView.xib; sourceTree = "<group>"; };
 		1F511F3519AAF26F00AEF8A0 /* NewItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItemTableViewCell.swift; sourceTree = "<group>"; };
+		1F8FFEA619B98687009AFDA9 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsDetailViewController.swift; path = ../NewsDetailViewController.swift; sourceTree = "<group>"; };
 		1FA85D9F19A9093100E91E9E /* goudu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = goudu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA85DA319A9093100E91E9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FA85DA419A9093100E91E9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		1FA85DA119A9093100E91E9E /* goudu */ = {
 			isa = PBXGroup;
 			children = (
+				1F8FFEA619B98687009AFDA9 /* NewsDetailViewController.swift */,
 				1FA85DA419A9093100E91E9E /* AppDelegate.swift */,
 				1FA85DA919A9093100E91E9E /* ViewController.swift */,
 				1FA85DAB19A9093100E91E9E /* Main.storyboard */,
@@ -221,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F8FFEA719B98687009AFDA9 /* NewsDetailViewController.swift in Sources */,
 				1FA85DC519A90F6C00E91E9E /* NewsListTableViewController.swift in Sources */,
 				1FA85DAA19A9093100E91E9E /* ViewController.swift in Sources */,
 				1F511F3619AAF26F00AEF8A0 /* NewItemTableViewCell.swift in Sources */,
